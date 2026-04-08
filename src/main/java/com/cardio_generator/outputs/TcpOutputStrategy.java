@@ -6,12 +6,24 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executors;
 
+/**
+ * Streams patient data to a TCP client over a socket connection.
+ * When this strategy is created it starts a server on the given port and
+ * waits for one client to connect in a background thread.
+ * Once a client connects, each call to output() sends a formatted line to it.
+ */
 public class TcpOutputStrategy implements OutputStrategy {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
 
+    /**
+     * Starts a TCP server on the specified port and waits for a client to connect.
+     * The connection is accepted in a separate thread so the main thread is not blocked.
+     *
+     * @param port the port number to listen on
+     */
     public TcpOutputStrategy(int port) {
         try {
             serverSocket = new ServerSocket(port);
@@ -32,6 +44,15 @@ public class TcpOutputStrategy implements OutputStrategy {
         }
     }
 
+    /**
+     * Sends one data record to the connected TCP client.
+     * If no client has connected yet, this method does nothing.
+     *
+     * @param patientId the ID of the patient the data belongs to
+     * @param timestamp the time the data was recorded, in milliseconds since epoch
+     * @param label     the type of data (e.g. "ECG", "Alert")
+     * @param data      the data value as a string
+     */
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
         if (out != null) {
