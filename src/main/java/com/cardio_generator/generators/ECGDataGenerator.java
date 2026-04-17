@@ -19,7 +19,7 @@ public class ECGDataGenerator implements PatientDataGenerator {
 
     @Override
     public void generate(int patientId, OutputStrategy outputStrategy) {
-        // TODO Check how realistic this data is and make it more realistic if necessary
+
         try {
             double ecgValue = simulateEcgWaveform(patientId, lastEcgValues[patientId]);
             outputStrategy.output(patientId, System.currentTimeMillis(), "ECG", Double.toString(ecgValue));
@@ -31,7 +31,7 @@ public class ECGDataGenerator implements PatientDataGenerator {
     }
 
     private double simulateEcgWaveform(int patientId, double lastEcgValue) {
-        // Simplified ECG waveform generation based on sinusoids
+
         double hr = 60.0 + random.nextDouble() * 20.0; // Simulate heart rate variability between 60 and 80 bpm
         double t = System.currentTimeMillis() / 1000.0; // Use system time to simulate continuous time
         double ecgFrequency = hr / 60.0; // Convert heart rate to Hz
