@@ -34,13 +34,34 @@ import java.util.ArrayList;
  * <p>Run it with --patient-count to set how many patients to simulate, and
  * --output to choose where the data goes. If no arguments are given it
  * defaults to 50 patients with console output.
+ * 
+ * Implemented as a Singleton to ensure only one instance exists.
  */
 public class HealthDataSimulator {
 
+    private static HealthDataSimulator instance;
     private static int patientCount = 50; // Default number of patients
     private static ScheduledExecutorService scheduler;
     private static OutputStrategy outputStrategy = new ConsoleOutputStrategy(); // Default output strategy
     private static final Random random = new Random();
+
+    /**
+     * Private constructor to prevent instantiation from outside.
+     */
+    private HealthDataSimulator() {
+    }
+
+    /**
+     * Gets the singleton instance of HealthDataSimulator.
+     *
+     * @return the singleton instance
+     */
+    public static synchronized HealthDataSimulator getInstance() {
+        if (instance == null) {
+            instance = new HealthDataSimulator();
+        }
+        return instance;
+    }
 
     /**
      * Entry point for the simulator. Parses command-line arguments, sets up
