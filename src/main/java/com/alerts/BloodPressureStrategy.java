@@ -3,9 +3,6 @@ package com.alerts;
 import com.data_management.PatientRecord;
 import java.util.List;
 
-/**
- * Strategy for checking blood pressure-related alerts.
- */
 public class BloodPressureStrategy implements AlertStrategy {
 
     @Override

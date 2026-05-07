@@ -1,8 +1,5 @@
 package com.alerts;
 
-/**
- * Represents a blood oxygen saturation alert.
- */
 public class BloodOxygenAlert extends Alert {
     private double saturationLevel;
     private double saturationChange; // percentage change

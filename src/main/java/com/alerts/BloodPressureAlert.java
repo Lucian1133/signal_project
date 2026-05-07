@@ -1,8 +1,5 @@
 package com.alerts;
 
-/**
- * Represents a blood pressure-specific alert.
- */
 public class BloodPressureAlert extends Alert {
     private String pressureType; // "Systolic" or "Diastolic"
     private double readingValue;

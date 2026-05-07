@@ -1,9 +1,5 @@
 package com.alerts;
 
-/**
- * Decorator that adds priority level to alerts.
- * Dynamically adjusts priority based on alert severity.
- */
 public class PriorityAlertDecorator extends AlertDecorator {
     public enum Priority {
         LOW(1),

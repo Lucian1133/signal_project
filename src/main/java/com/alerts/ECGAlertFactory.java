@@ -1,8 +1,5 @@
 package com.alerts;
 
-/**
- * Factory for creating ECG alerts.
- */
 public class ECGAlertFactory extends AlertFactory {
     private double heartRate;
     private String rhythmAbnormality;
