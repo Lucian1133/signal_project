@@ -3,6 +3,9 @@ package com.alerts;
 import com.data_management.PatientRecord;
 import java.util.List;
 
+/**
+ * Strategy for checking oxygen saturation related alerts.
+ */
 public class OxygenSaturationStrategy implements AlertStrategy {
 
     @Override

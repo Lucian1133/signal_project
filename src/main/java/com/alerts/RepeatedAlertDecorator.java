@@ -1,5 +1,9 @@
 package com.alerts;
 
+/**
+ * Decorator that adds repeated alert functionality.
+ * Triggers alert rechecking at specified intervals.
+ */
 public class RepeatedAlertDecorator extends AlertDecorator {
     private int intervalSeconds;
     private int maxRepetitions;

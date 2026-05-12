@@ -3,6 +3,10 @@ package com.alerts;
 import com.data_management.PatientRecord;
 import java.util.List;
 
+/**
+ * Strategy interface for alert checking.
+ * Implements the Strategy Pattern for different monitoring strategies.
+ */
 public interface AlertStrategy {
     
     /**

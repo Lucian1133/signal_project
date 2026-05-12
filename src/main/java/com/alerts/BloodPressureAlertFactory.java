@@ -1,5 +1,8 @@
 package com.alerts;
 
+/**
+ * Factory for creating blood pressure alerts.
+ */
 public class BloodPressureAlertFactory extends AlertFactory {
     private String pressureType; // "Systolic" or "Diastolic"
     private double readingValue;

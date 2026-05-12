@@ -1,5 +1,8 @@
 package com.alerts;
 
+/**
+ * Factory for creating blood oxygen saturation alerts.
+ */
 public class BloodOxygenAlertFactory extends AlertFactory {
     private double saturationLevel;
     private double saturationChange;

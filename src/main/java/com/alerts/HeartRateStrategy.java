@@ -3,6 +3,9 @@ package com.alerts;
 import com.data_management.PatientRecord;
 import java.util.List;
 
+/**
+ * Strategy for checking heart rate (ECG) related alerts.
+ */
 public class HeartRateStrategy implements AlertStrategy {
 
     @Override

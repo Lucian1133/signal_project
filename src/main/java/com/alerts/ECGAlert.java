@@ -1,5 +1,8 @@
 package com.alerts;
 
+/**
+ * Represents an ECG (electrocardiogram) alert for heart rate and rhythm issues.
+ */
 public class ECGAlert extends Alert {
     private double heartRate;
     private String rhythmAbnormality;
