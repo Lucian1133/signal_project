@@ -107,7 +107,7 @@ class WebSocketDataReaderTest {
         assertEquals(9999, records.get(0).getTimestamp());
     }
 
-    // --- Error handling tests ---
+    
 
     @Test
     void testInvalidUriThrowsIOException() {
@@ -123,7 +123,7 @@ class WebSocketDataReaderTest {
         assertDoesNotThrow(() -> reader.disconnect());
     }
 
-    // --- Integration test with a real WebSocket server ---
+    //  Integration test with a real WebSocket server 
 
     @Test
     void testIntegrationWithRealServer() throws Exception {
