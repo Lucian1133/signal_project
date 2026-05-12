@@ -22,7 +22,7 @@ class AlertGeneratorTest {
 
     @BeforeEach
     void setUp() {
-        alertGenerator = new AlertGenerator(new DataStorage());
+        alertGenerator = new AlertGenerator(DataStorage.getInstance());
     }
 
 

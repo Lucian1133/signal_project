@@ -27,7 +27,7 @@ class FileDataReaderTest {
               pw.println("Patient ID: 1, Timestamp: 2000, Label: ECG, Data: -0.30");
          }
 
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
         new FileDataReader(tempDir.toString()).readData(storage);
 
           List<PatientRecord> records = storage.getRecords(1, 0, Long.MAX_VALUE);
@@ -43,7 +43,7 @@ class FileDataReaderTest {
             pw.println("Patient ID: 2, Timestamp: 5000, Label: Alert, Data: triggered");
         }
 
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
         new FileDataReader(tempDir.toString()).readData(storage);
 
         List<PatientRecord> records = storage.getRecords(2, 0, Long.MAX_VALUE);
@@ -58,7 +58,7 @@ class FileDataReaderTest {
             pw.println("Patient ID: 3, Timestamp: 6000, Label: Alert, Data: resolved");
           }
 
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
          new FileDataReader(tempDir.toString()).readData(storage);
 
            List<PatientRecord> records = storage.getRecords(3, 0, Long.MAX_VALUE);
@@ -74,7 +74,7 @@ class FileDataReaderTest {
             pw.println("Patient ID: 4, Timestamp: 7000, Label: Saturation, Data: 95.0");
          }
 
-          DataStorage storage = new DataStorage();
+          DataStorage storage = DataStorage.getInstance();
           new FileDataReader(tempDir.toString()).readData(storage);
   
         List<PatientRecord> records = storage.getRecords(4, 0, Long.MAX_VALUE);
@@ -85,7 +85,7 @@ class FileDataReaderTest {
     @Test
        void testReadDataThrowsForInvalidDirectory() {
         FileDataReader reader = new FileDataReader("/nonexistent/path/that/does/not/exist");
-        assertThrows(IOException.class, () -> reader.readData(new DataStorage()));
+        assertThrows(IOException.class, () -> reader.readData(DataStorage.getInstance()));
     }
 
      @Test
@@ -99,7 +99,7 @@ class FileDataReaderTest {
              pw.println("Patient ID: 5, Timestamp: 2000, Label: Saturation, Data: 97.0");
         }
 
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
          new FileDataReader(tempDir.toString()).readData(storage);
  
       List<PatientRecord> all = storage.getRecords(5, 0, Long.MAX_VALUE);
@@ -113,7 +113,7 @@ class FileDataReaderTest {
               pw.println("Patient ID: 6, Timestamp: 3000, Label: SystolicPressure, Data: 120.0");
          }
 
-         DataStorage storage = new DataStorage();
+         DataStorage storage = DataStorage.getInstance();
         new FileDataReader(tempDir.toString()).readData(storage);
        List<PatientRecord> records = storage.getRecords(6, 0, Long.MAX_VALUE);
           assertEquals(1, records.size());
